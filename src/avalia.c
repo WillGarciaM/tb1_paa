@@ -1,6 +1,6 @@
 /*********************************************************
 *          PROJETO E ANALISE DE ALGORITMOS               *
-*                ORDENAÇÃO DE VETOR                      *
+*                ORDENAï¿½ï¿½O DE VETOR                      *
 *                                                        *
 *            METODO:BUBLE SORT		                     *
 *********************************************************/
@@ -13,14 +13,16 @@
 typedef int TDATA;
 typedef int TSIZE;
 
-
+//adicionar custo para comparacao e troca
+//este e o codigo de um bubblesort
 /*********************************************************
-* Método de ordenação a ser implementado pelo grupo      *
+* Mï¿½todo de ordenaï¿½ï¿½o a ser implementado pelo grupo      *
 /********************************************************/
 int ordena(TDATA *vetor, TSIZE n)
 {
 	TSIZE i, j;
 	TDATA aux;
+  int custo;
 	for (i = 0; custo++, i < n-1; i++)      
        // Last i elements are already in place   
        for (j = 0; custo++, j<n-i-1; j++) 
@@ -53,7 +55,7 @@ TSIZE i;
 TDATA dado;
 
   if (vetor==NULL) {
-    printf("Erro de alocacao de memória!!\n");
+    printf("Erro de alocacao de memï¿½ria!!\n");
     exit(0);
   }
   arq = fopen("dados.dat","rt");
@@ -68,7 +70,6 @@ TDATA dado;
       exit(1);
     }
     vetor[i] = dado;
-
   }
   fclose(arq);
 }
@@ -97,6 +98,9 @@ clock_t clock0, clock1;
 int nv;
 int result;
 
+  // obtem tempo inicial
+  clock0 = clock();
+
   	for(nv=1;nv<=100; nv++) {
   
   
@@ -105,18 +109,17 @@ int result;
   		vetor = (TDATA *) malloc(n*sizeof(TDATA));
 
   		le_vetor(vetor, n);
-        custo = 0;
+      custo = 0;
   		//printf("Iniciando Ordenacao...\n");
-  		// obtem tempo inicial
-  		clock0 = clock();
   
   		result = Max(vetor,n);
-  		// obtem tempo final
-  		clock1 = clock();
+
   		//printf("Ordenacao Finalizada!!!\n");
   		//printf("%d\tTamanho\t%d\t%e\tsegundos\n",result,n,((double)((clock1 - clock0))/CLOCKS_PER_SEC));
-        printf("%d\tTamanho\t%d\t%d\toperacoes\n",result,n,custo);
+      printf("%d\tTamanho\t%d\t%d\toperacoes\n",result,n,custo);
   		free(vetor);
    }
-  	
+    // obtem tempo final
+    clock1 = clock();
+    printf("tempo de duracao: %d", ((double)((clock1 - clock0))/CLOCKS_PER_SEC));
 }
