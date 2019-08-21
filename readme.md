@@ -1,0 +1,2 @@
+Complexidade = Comparações + Trocas
+ 
